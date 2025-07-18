@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CDN -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Righteous&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: url("{% static 'bg.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Righteous', sans-serif;
+            color: white;
+            margin: 0;
+        }
+
+        .login-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .glass-card {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .btn-custom {
+            background: #007bff;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+            box-shadow: 0 0 10px #00f7ff;
+        }
+
+        h2#title {
+            font-family: 'Fredoka One', cursive;
+            color: red;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #f0f0f0;
+        }
+
+        .switch-btns {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .switch-btns a {
+            color: white;
+            border: 1px solid white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .switch-btns a:hover {
+            background-color: white;
+            color: black;
+            box-shadow: 0 0 10px white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center mt-4">
+        <h2 id="title">Foureye: Defensive Deception based on Hypergame Theory Against Advanced Persistent Threats</h2>
+        <p class="subtitle">Defensive deception, hypergame theory, uncertainty, attacker, defender, advanced persistent threat.</p>
+    </div>
+
+    <div class="login-wrapper">
+        <div class="glass-card">
+            <form method="POST">
+                {% csrf_token %}
+                <h4 class="text-center mb-4" style="color: red;">Login Using Your Account</h4>
+                <input type="text" name="username" placeholder="User Name" required class="form-control">
+                <input type="password" name="password" placeholder="Password" required class="form-control">
+                <input type="submit" name="submit1" value="Login" class="btn btn-custom">
+            </form>
+
+            <div class="switch-btns mt-4">
+                <a href="{% url 'serviceproviderlogin' %}">SERVICE PROVIDER</a>
+                <a href="{% url 'Register1' %}">REGISTER</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

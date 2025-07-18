@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register Your Details</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CDN -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Righteous|Fredoka+One" rel="stylesheet">
+
+    <style>
+        body {
+            background: url("{% static 'bg.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Righteous', cursive;
+            color: white;
+        }
+
+        .register-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        h2#title {
+            font-family: 'Fredoka One', cursive;
+            color: #ff0000;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .style1, .style1 small {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .form-control::placeholder {
+            color: #aaa;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            width: 100%;
+        }
+
+        .btn-secondary {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        img.img-fluid {
+            max-height: 150px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 register-container">
+            <h2 class="text-center" id="title">
+                Foureye: Defensive Deception based on Hypergame Theory Against Advanced Persistent Threats
+            </h2>
+            <p class="text-center style1">
+                <small>Defensive deception, hypergame theory, uncertainty, attacker, defender, advanced persistent threat.</small>
+            </p>
+            <hr class="bg-white">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="text-center">
+                    <img src="{% static 'images/Register.jpg' %}" alt="Register" class="img-fluid"><br>
+                    <span class="style1">REGISTER YOUR DETAILS HERE !!!</span>
+                </div>
+
+                <div class="form-group mt-4">
+                    <input type="text" name="username" placeholder="User Name" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email Address" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="number" name="phoneno" placeholder="Mobile Number" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="country" placeholder="Country" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="state" placeholder="State" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="city" placeholder="City" required class="form-control">
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Register">
+                <a href="{% url 'login' %}" class="btn btn-secondary">User Login</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
